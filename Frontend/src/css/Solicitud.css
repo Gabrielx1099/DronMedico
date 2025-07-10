@@ -1,0 +1,550 @@
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.medical-form-container {
+  min-height: 100vh;
+  background-color: #f8f9fc;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* ===== HEADER Y PROGRESO ===== */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 20px 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.progress-step {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.progress-step.active {
+  background-color: white;
+  color: #667eea;
+}
+
+/* ===== CONTENEDORES DE PASOS ===== */
+.step-container {
+  padding: 40px;
+}
+
+.step-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* ===== FORMULARIOS Y INPUTS ===== */
+.label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #34495e;
+  margin-bottom: 8px;
+}
+
+.select {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  background-color: white;
+  color: #2c3e50;
+  transition: border-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.region-selector {
+  margin-bottom: 30px;
+}
+
+/* ===== MAPA Y UBICACIÓN ===== */
+.map-container {
+  margin-bottom: 30px;
+}
+
+.map-controls {
+  margin-bottom: 15px;
+}
+
+.location-button {
+  padding: 12px 24px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.location-button:hover {
+  background-color: #2980b9;
+}
+
+.location-button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.map-instructions {
+  margin: 10px 0;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.map {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  border: 2px solid #e1e8ed;
+}
+
+.address-confirmation {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fc;
+  border-radius: 8px;
+  border: 1px solid #e1e8ed;
+}
+
+.address-text {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  line-height: 1.5;
+}
+
+.confirmation-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* ===== SELECCIÓN DE MEDICAMENTOS ===== */
+.pain-selector {
+  margin-bottom: 30px;
+}
+
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.pain-button {
+  padding: 15px;
+  background-color: white;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.pain-button:hover {
+  border-color: #667eea;
+  background-color: #f8f9fc;
+}
+
+.pain-button.selected {
+  background-color: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+.pain-button:disabled {
+  background-color: #ecf0f1;
+  color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.selected-medications {
+  margin-top: 30px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.medication-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #e1e8ed;
+}
+
+.medication-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.medication-info strong {
+  font-size: 16px;
+  color: #2c3e50;
+}
+
+.medication-pain {
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.medication-form {
+  font-size: 12px;
+  color: #95a5a6;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.quantity-input {
+  width: 60px;
+  padding: 8px;
+  border: 1px solid #e1e8ed;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.quantity-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.remove-button {
+  width: 30px;
+  height: 30px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+  background-color: #c0392b;
+}
+
+/* ===== SELECCIÓN DE PRIORIDAD ===== */
+.priority-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.priority-option {
+  padding: 20px;
+  background-color: white;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.priority-option:hover {
+  border-color: #667eea;
+  background-color: #f8f9fc;
+}
+
+.priority-option.selected {
+  background-color: #f8f9fc;
+  border-color: #667eea;
+}
+
+.priority-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.priority-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.checkmark {
+  color: #27ae60;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.priority-description {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ===== RESUMEN Y CONFIRMACIÓN ===== */
+.summary {
+  margin-bottom: 30px;
+}
+
+.summary-section {
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: #f8f9fc;
+  border-radius: 8px;
+  border: 1px solid #e1e8ed;
+}
+
+.summary-title {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.summary-text {
+  margin: 0;
+  color: #34495e;
+  line-height: 1.6;
+}
+
+.summary-medication {
+  margin-bottom: 12px;
+  color: #34495e;
+  line-height: 1.5;
+}
+
+.summary-medication strong {
+  color: #2c3e50;
+}
+
+.summary-medication small {
+  color: #7f8c8d;
+}
+
+.priority-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.priority-badge.alta {
+  background-color: #ff4757;
+}
+
+.priority-badge.media {
+  background-color: #ffa502;
+}
+
+.priority-badge.baja {
+  background-color: #2ed573;
+}
+
+/* ===== BOTONES DE NAVEGACIÓN ===== */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.button {
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.prev-button {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.prev-button:hover {
+  background-color: #7f8c8d;
+}
+
+.next-button {
+  background-color: #667eea;
+  color: white;
+}
+
+.next-button:hover {
+  background-color: #5a6fd8;
+}
+
+.submit-button {
+  background-color: #27ae60;
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #229954;
+}
+
+.confirm-button {
+  background-color: #27ae60;
+  color: white;
+}
+
+.confirm-button:hover {
+  background-color: #229954;
+}
+
+.confirmed-button {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.disabled-button {
+  background-color: #bdc3c7;
+  color: #7f8c8d;
+  cursor: not-allowed;
+}
+
+.disabled-button:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ===== MENSAJES DE ERROR ===== */
+.error-message {
+  background-color: #e74c3c;
+  color: white;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .medical-form-container {
+    padding: 10px;
+  }
+  
+  .step-container {
+    padding: 20px;
+  }
+  
+  .pain-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .medication-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .quantity-controls {
+    align-self: flex-end;
+  }
+  
+  .navigation-buttons {
+    flex-direction: column;
+  }
+  
+  .button {
+    width: 100%;
+  }
+  
+  .map {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .step-title {
+    font-size: 20px;
+  }
+  
+  .progress-bar {
+    gap: 10px;
+  }
+  
+  .progress-step {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+}

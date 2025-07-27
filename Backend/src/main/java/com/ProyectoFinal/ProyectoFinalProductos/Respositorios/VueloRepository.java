@@ -1,5 +1,6 @@
 package com.ProyectoFinal.ProyectoFinalProductos.Respositorios;
 
+import com.ProyectoFinal.ProyectoFinalProductos.Modelos.Solicitud.EstadoSolicitud;
 import com.ProyectoFinal.ProyectoFinalProductos.Modelos.Vuelo;
 import com.ProyectoFinal.ProyectoFinalProductos.Modelos.Vuelo.EstadoEntrega;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -40,4 +41,8 @@ public interface VueloRepository extends JpaRepository<Vuelo, Integer> {
     Long countVuelosPorEstadoYFecha(@Param("estado") EstadoEntrega estado, 
                                    @Param("fechaInicio") LocalDateTime fechaInicio, 
                                    @Param("fechaFin") LocalDateTime fechaFin);
+
+    @Query("SELECT v FROM Vuelo v WHERE v.solicitud.usuario.id = :usuarioId AND v.solicitud.estadoSolicitud = :estado")
+    List<Vuelo> findByUsuarioIdAndSolicitudEstado(@Param("usuarioId") int usuarioId, @Param("estado") EstadoSolicitud estado);
+
 }

@@ -8,6 +8,7 @@ import Intranet from './components/Intranet';
 import Solicitud from './components/Solicitud';
 import Historial from './components/Historial'
 import Vuelos from './components/Vuelos';
+import Alertas from './components/Alertas';  // ← Agregar esta línea
 
 function App() {
   return (
@@ -21,8 +22,7 @@ function App() {
           <Route path="/solicitud" element={<Solicitud />} />
           <Route path="/historial" element={<Historial />} />
           <Route path="/vuelos" element={<Vuelos />} />
-
-
+          <Route path="/alertas" element={<Alertas />} />  {/* ← Agregar esta línea */}
         </Routes>
       </Layout>
     </Router>

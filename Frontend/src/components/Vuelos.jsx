@@ -16,7 +16,7 @@ const Vuelos = () => {
   useEffect(() => {
     if (!userId) return;
 
-    fetch(`http://localhost:8081/api/vuelos/usuario/${userId}`)
+    fetch(`http://localhost:8081/api/vuelos/usuario/${userId}/pendientes`)
       .then(res => {
         if (!res.ok) throw new Error('Error al obtener vuelos');
         return res.json();
@@ -71,7 +71,7 @@ const Vuelos = () => {
       alert('✅ Entrega confirmada correctamente');
 
       // Obtener vuelos actualizados
-      const updatedVuelos = await fetch(`http://localhost:8081/api/vuelos/usuario/${userId}`);
+      const updatedVuelos = await fetch(`http://localhost:8081/api/vuelos/usuario/${userId}/pendientes`);
       if (!updatedVuelos.ok) throw new Error('Error al obtener vuelos actualizados');
       const vuelosData = await updatedVuelos.json();
       setVuelos(vuelosData);

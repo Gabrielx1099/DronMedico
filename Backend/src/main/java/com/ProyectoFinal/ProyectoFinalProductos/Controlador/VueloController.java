@@ -7,6 +7,7 @@ import com.ProyectoFinal.ProyectoFinalProductos.Respositorios.SolicitudRepositor
 import com.ProyectoFinal.ProyectoFinalProductos.Respositorios.DronRepository;
 import com.ProyectoFinal.ProyectoFinalProductos.Modelos.Dron;
 import com.ProyectoFinal.ProyectoFinalProductos.Modelos.Solicitud;
+import com.ProyectoFinal.ProyectoFinalProductos.Modelos.Solicitud.EstadoSolicitud;
 import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -185,4 +186,9 @@ public ResponseEntity<Vuelo> finalizarVuelo(
         }
         return ResponseEntity.notFound().build();
     }
+        @GetMapping("/usuario/{usuarioId}/pendientes")
+    public List<Vuelo> obtenerVuelosPendientesPorUsuario(@PathVariable int usuarioId) {
+        return vueloRepository.findByUsuarioIdAndSolicitudEstado(usuarioId, EstadoSolicitud.pendiente);
+    }
+
 }
